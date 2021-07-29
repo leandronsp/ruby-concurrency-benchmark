@@ -2,7 +2,11 @@
 
 This project runs a benchmark using different concurrency strategies in Ruby.
 
-### Global results
+## Requirements
+
+* Ruby 3.x
+
+## Global results
 
 Considering:
 
