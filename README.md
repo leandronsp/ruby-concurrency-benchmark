@@ -19,3 +19,7 @@ fork        11.011452   135MiB
 thread      20.929861   25MiB
 ractor      11.142093   27MiB
 ```
+
+## Credits
+
+Inspired by [this awesome article](https://www.toptal.com/ruby/ruby-concurrency-and-parallelism-a-practical-primer).
