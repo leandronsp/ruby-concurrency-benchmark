@@ -1,17 +1,6 @@
-require './lib/fib'
 require 'benchmark'
+require './lib/async_thread'
 
-threads = []
-
-benchmark = Benchmark.measure do
-  Fib::TIMES.times do |idx|
-    threads << Thread.new do
-      Fib.fib(30)
-      puts idx
-    end
-  end
-
-  threads.map(&:join)
+Benchmark.bm do |x|
+  x.report('thread') { AsyncThread.perform }
 end
-
-puts benchmark

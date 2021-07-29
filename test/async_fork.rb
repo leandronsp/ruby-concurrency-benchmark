@@ -1,15 +1,6 @@
-require './lib/fib'
 require 'benchmark'
+require './lib/async_fork'
 
-benchmark = Benchmark.measure do
-  Fib::TIMES.times do |idx|
-    fork do
-      Fib.fib(30)
-      puts idx
-    end
-  end
-
-  Process.waitall
+Benchmark.bm do |x|
+  x.report('fork') { AsyncFork.perform }
 end
-
-puts benchmark

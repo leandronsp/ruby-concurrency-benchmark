@@ -1,11 +1,6 @@
-require './lib/fib'
 require 'benchmark'
+require './lib/synchronous'
 
-benchmark = Benchmark.measure do
-  Fib::TIMES.times do |idx|
-    Fib.fib(30)
-    puts idx
-  end
+Benchmark.bm do |x|
+  x.report('synchronous') { Synchronous.perform }
 end
-
-puts benchmark

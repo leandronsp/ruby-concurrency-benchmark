@@ -1,17 +1,6 @@
-require './lib/fib'
 require 'benchmark'
+require './lib/async_ractor'
 
-ractors = []
-
-benchmark = Benchmark.measure do
-  Fib::TIMES.times do |idx|
-    ractors << Ractor.new(idx) do |id|
-      Fib.fib(30)
-      puts id
-    end
-  end
-
-  ractors.map(&:take)
+Benchmark.bm do |x|
+  x.report('ractor') { AsyncRactor.perform }
 end
-
-puts benchmark
